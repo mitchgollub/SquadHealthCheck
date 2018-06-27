@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.0" />
+  </ItemGroup>
+
+  <Target Name="CopySignalR" BeforeTargets="AfterBuild">
+    <ItemGroup>
+      <SignalRJSClientFiles Include="$(MSBuildThisFileDirectory)node_modules\@aspnet\signalr\dist\browser\*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(SignalRJSClientFiles)" DestinationFolder="$(MSBuildThisFileDirectory)wwwroot\lib\signalr" />
+  </Target>
+
+  <Target Name="CopyBootstrapCss" BeforeTargets="AfterBuild">
+    <ItemGroup>
+      <BootstrapCssClientFiles Include="$(MSBuildThisFileDirectory)node_modules\bootstrap\dist\css\*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(BootstrapCssClientFiles)" DestinationFolder="$(MSBuildThisFileDirectory)wwwroot\lib\bootstrap\dist\css" />
+  </Target>
+
+</Project>
