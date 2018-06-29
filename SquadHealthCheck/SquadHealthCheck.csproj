@@ -9,6 +9,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.0" />
   </ItemGroup>
 
+  <Target Name="NpmInstall`" BeforeTargets="AfterBuild">
+    <Exec WorkingDirectory="$(MSBuildThisFileDirectory)" Command="npm install" />
+  </Target>
+
   <Target Name="CopySignalR" BeforeTargets="AfterBuild">
     <ItemGroup>
       <SignalRJSClientFiles Include="$(MSBuildThisFileDirectory)node_modules\@aspnet\signalr\dist\browser\*" />
