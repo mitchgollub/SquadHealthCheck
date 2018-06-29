@@ -15,14 +15,14 @@
 
   <Target Name="CopySignalR" BeforeTargets="AfterBuild">
     <ItemGroup>
-      <SignalRJSClientFiles Include="$(MSBuildThisFileDirectory)node_modules\@aspnet\signalr\dist\browser\*" />
+      <SignalRJSClientFiles Include="$(MSBuildThisFileDirectory)node_modules\@aspnet\signalr\dist\browser\*.js" />
     </ItemGroup>
     <Copy SourceFiles="@(SignalRJSClientFiles)" DestinationFolder="$(MSBuildThisFileDirectory)wwwroot\lib\signalr" />
   </Target>
 
   <Target Name="CopyBootstrapCss" BeforeTargets="AfterBuild">
     <ItemGroup>
-      <BootstrapCssClientFiles Include="$(MSBuildThisFileDirectory)node_modules\bootstrap\dist\css\*" />
+      <BootstrapCssClientFiles Include="$(MSBuildThisFileDirectory)node_modules\bootstrap\dist\css\*.css" />
     </ItemGroup>
     <Copy SourceFiles="@(BootstrapCssClientFiles)" DestinationFolder="$(MSBuildThisFileDirectory)wwwroot\lib\bootstrap\dist\css" />
   </Target>

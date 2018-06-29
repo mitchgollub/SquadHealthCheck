@@ -25,4 +25,11 @@ document.getElementById("sendButton").addEventListener("click", event => {
     event.preventDefault();
 });
 
+document.getElementById("sendButtonReverse").addEventListener("click", event => {
+    const message = document.getElementById("userInput").value;
+    const user = document.getElementById("messageInput").value;    
+    connection.invoke("SendMessage", user, message).catch(err => console.error(err.toString()));
+    event.preventDefault();
+});
+
 connection.start().catch(err => console.error(err.toString()));

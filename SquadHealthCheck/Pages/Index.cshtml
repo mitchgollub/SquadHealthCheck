@@ -1,29 +1,30 @@
 ﻿@page
 <div class="container">
-    <div class="row">&nbsp;</div>
     <div class="row">
-        <div class="col-6">&nbsp;</div>
-        <div class="col-6">
-            User..........<input type="text" id="userInput" />
-            <br />
-            Message...<input type="text" id="messageInput" />
-            <input type="button" id="sendButton" value="Send Message" />
+        <div class="col-8">
+            <div class="">
+                This is where the Activity Status goes
+            </div>
+            <div class="">
+                This is where the Room Status goes
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <hr />
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-6">&nbsp;</div>
-        <div class="col-6">
-            <ul id="messagesList"></ul>
+        <div class="col-4 user-actions">
+            <div class="row">
+                This is where the User Actions go
+            </div>
         </div>
     </div>
 </div>
-<script src="~/lib/signalr/signalr.js"></script>    
-<script src="~/js/chat.js"></script>
+
+<environment include="Development">
+    <script src="~/lib/signalr/signalr.js"></script>    
+</environment>
+<environment exclude="Development">
+    <script src="~/lib/signalr/signalr.min.js"></script>    
+</environment>
+<script src="~/js/chat.js" asp-append-version="true"></script>
+
 @*
     If you need a version of the chat script that is compatible with IE 11, replace the above <script> tag that imports chat.js with this one
     <script src="~/js/es5-chat.js"></script>
